@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/offer.css">
+    <title><%= offer.title %></title>
+    <style>
+        .offer-image {
+            max-width: 400px;
+            max-height: 480px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <h1><%= offer.title %></h1>
+    <h2><%= offer.description %></h2>
+    </header>
+    <div class="offer">
+        <div class="image">
+            <div class="img_container">
+            <% if (offer.image_url) { %>
+                <img src="/<%= offer.image_url %>" alt="Offer Image" class="offer-image">
+            <% } else { %>
+                <p>Brak zdjęcia</p>
+            <% } %>
+            </div>
+        </div> 
+
+        <div class="details">
+        <h2><%= offer.price %> zł</h2><br>
+        <% if (reviews.length > 0) { %>
+            <% let totalRating = 0; %>
+            <% reviews.forEach(function(review) { %>
+                <% totalRating += review.rating; %>
+            <% }); %>
+            <% const averageRating = totalRating / reviews.length; %>
+            <a>Oceny: <%= averageRating.toFixed(1) %></a>
+        <% } else { %>
+            <a>Oceny: 0.0/0</a>
+        <% } %>
+        <br><br>
+        <% const owner = allUsers.find(user => user.user_id === offer.user_id); %>
+        <a>Wystawione przez: <%= owner ? owner.login : 'Anonim' %></a>
+        <form action="/cart/add/<%= offer.offer_id %>" method="POST">
+            <button type="submit">Dodaj do koszyka</button>
+        </form>
+        <br>
+        <% if (user && (user.user_id == offer.user_id || user.role === 'administrator')) { %>
+            <a href="/offer/<%= offer.offer_id %>/edit">Edytuj</a>
+        <% } %>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="reviews">
+    <% if (user && !hasReviewed) { %>
+    <h2>Dodaj komentarz i ocenę</h2>
+    <form action="/offer/<%= offer.offer_id %>/add-review" method="POST">
+        <label for="comment">Komentarz:</label>
+        <textarea id="comment" name="comment" rows="1" required></textarea><br>
+      
+        <label for="rating">Ocena:</label><br>
+        <input type="radio" id="rating1" name="rating" value="1" required>
+        <label for="rating1">1</label>
+        <input type="radio" id="rating2" name="rating" value="2">
+        <label for="rating2">2</label>
+        <input type="radio" id="rating3" name="rating" value="3">
+        <label for="rating3">3</label>
+        <input type="radio" id="rating4" name="rating" value="4">
+        <label for="rating4">4</label>
+        <input type="radio" id="rating5" name="rating" value="5">
+        <label for="rating5">5</label><br>
+      <button type="submit">Dodaj recenzję</button>
+    </form>
+    <% } else { %>
+        <p style="color: red;">Już oceniłeś ten produkt lub nie jesteś zalogowany.</p>
+  <% } %> 
+
+  <div class="comment">
+  <h2>Komentarze</h2>
+    <% reviews.forEach(function(review) { %>
+        <div>
+            <% const username= allUsers.find(user => user.user_id === review.user_id); %>
+            <p>Użytkownik   <%= username ? username.login : 'Anonim' %>:</p>
+            <p>Napisał/(a): <%= review.comment %></p>
+            <p>Ocena: <%= review.rating %></p>
+            <p>Dnia: <%= review.date.toLocaleString() %></p>
+            <% if (user && user.user_id === review.user_id) { %>
+                <form action="/deleteReview/<%= review.review_id %>" method="POST" style="display:inline;">
+                  <button type="submit" style="background-color: red; border: 2px solid #cc0000; color: white;">Usuń</button>
+                </form>
+            <% } %>
+        </div>
+    <% }); %>
+    </div>
+    </div>
+</body>
+</html>

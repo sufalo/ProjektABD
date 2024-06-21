@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista ofert</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .offer-image {
+            max-width: 200px;
+            height: auto;
+        }
+    </style>
+    <script>
+        function sortOffers() {
+            const sortOption = document.getElementById('sortOptions').value;
+            const sortDirection = document.getElementById('sortDirection').value;
+            const minPrice = document.getElementById('minPrice').value;
+            const maxPrice = document.getElementById('maxPrice').value;
+            window.location.href = '/?sort=' + sortOption + '&direction=' + sortDirection + '&minPrice=' + minPrice + '&maxPrice=' + maxPrice;
+        }
+
+        function filterOffers() {
+            const minPrice = document.getElementById('minPrice').value;
+            const maxPrice = document.getElementById('maxPrice').value;
+            const sortOption = document.getElementById('sortOptions').value;
+            const sortDirection = document.getElementById('sortDirection').value;
+            window.location.href = '/?minPrice=' + minPrice + '&maxPrice=' + maxPrice + '&sort=' + sortOption + '&direction=' + sortDirection;
+        }
+    </script>
+</head>
+<body>
+    <header>
+    <h1>Lista ofert</h1>
+    </header>
+    <div class="menu">
+    <% if (!user) { %>
+        <a href="/login">Login</a>
+    <% } else { %>
+        <p class="welcome">Witaj, <%= user.first_name %> <%= user.last_name %>!</p>
+        <div class="options">
+        <a href="/logout">Wyloguj</a>
+        <a href="/orders">Zobacz zamówienia</a>
+        <a href="/edit-account">Modyfikuj konto</a>
+    <% } %>
+        <a href="/cart">Koszyk</a>
+        <a href="/offers/add">Dodaj ofertę</a>
+        </div>
+    <% if (message) { %>
+        <p class="message"><%= message %></p>
+    <% } %>
+    </div>
+
+    <div class="sort">
+        <label>Sortuj według:</label>
+        <select id="sortOptions" onchange="sortOffers()">
+            <option value="">Domyślnie</option>
+            <option value="name" <% if (sort === 'name') { %> selected <% } %>>Nazwa</option>
+            <option value="price" <% if (sort === 'price') { %> selected <% } %>>Cena</option>
+            <option value="rating" <% if (sort === 'rating') { %> selected <% } %>>Ocena</option>
+        </select>
+        <select id="sortDirection" onchange="sortOffers()">
+            <option value="1" <% if (direction == 1) { %> selected <% } %>>Rosnąco</option>
+            <option value="-1" <% if (direction == -1) { %> selected <% } %>>Malejąco</option>
+        </select>
+    </div>
+
+    <div class="sort">
+        <label for="minPrice">Minimalna cena:</label>
+        <input type="number" id="minPrice" value="<%= minPrice %>">
+        
+        <label for="maxPrice">Maksymalna cena:</label>
+        <input type="number" id="maxPrice" value="<%= maxPrice %>">
+        
+        <button onclick="filterOffers()">Filtruj</button>
+    </div>
+
+    <div class="main">
+    <ul>
+        <% offers.forEach(function(offer) { %>
+            <li>
+                <div class="img_container">
+                <% if (offer.image_url) { %>
+                    <img src="<%= offer.image_url %>" alt="Offer Image" class="offer-image">
+                <% } else { %>
+                    <p>Brak zdjęcia</p>
+                <% } %>
+                </div>
+                <h2><a href="/offer/<%= offer.offer_id %>"><%= offer.title %></a></h2>
+                <p>Cena: <%= offer.price %> zł</p>
+                <% if (offer.averageRating !== null) { %>
+                    <p>Opinie: <%= offer.averageRating.toFixed(1) %> / 5</p>
+                <% } else { %>
+                    <p>Brak opinii</p>
+                <% } %>
+            </li>
+        <% }); %>
+    </ul>
+    </div>
+
+    <footer>
+        <a href="/contact">Kontakt</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Edytuj konto</title>
+</head>
+<body>
+    <header>
+    <h1>Edytuj konto</h1>
+    </header>
+    <h2>Zmianę należy potwierdzić hasłem lub można je też od razu zmienić.</h2>
+    <div class="message">
+    <% if (message) { %>
+        <div class="message"><%= message %></div>
+    <% } %>
+    </div>
+    <div class="form">
+    <form action="/update-account" method="POST">
+        <label for="first_name">Imię:</label>
+        <input type="text" id="first_name" name="first_name" value="<%= user.first_name %>" required><br>
+        <label for="last_name">Nazwisko:</label>
+        <input type="text" id="last_name" name="last_name" value="<%= user.last_name %>" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= user.email %>" required><br>
+        <label for="phone">Numer telefonu:</label>
+        <input type="tel" id="phone" name="phone" value="<%= user.phone_number %>" required><br>
+        <label for="username">Login:</label>
+        <input type="text" id="username" name="username" value="<%= user.login %>" required><br>
+        <label for="password">Nowe hasło:</label>
+        <input type="password" id="password" name="password" required><br>
+        <label for="confirm_password">Potwierdź hasło:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required><br>
+        <button type="submit">Zapisz zmiany</button>
+    </form>
+    <form action="/delete-account" method="POST" onsubmit="return confirm('Czy na pewno chcesz usunąć konto?');">
+        <button type="submit" style="background-color: red; border: 2px solid #cc0000;">Usuń konto</button>
+    </form>
+    </div>
+</body>
+</html>

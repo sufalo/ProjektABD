@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/form.css">
+    <title>Dodaj nową ofertę</title>
+</head>
+<body>
+    <header>
+    <h1>Dodaj nową ofertę</h1>
+    </header>
+    <div class="message">
+    <% if (message) { %>
+        <p><%= message %></p>
+    <% } %>
+    </div>
+    <div class="form">
+    <form action="/offers/add" method="POST" enctype="multipart/form-data">
+        <label for="title">Tytuł:</label>
+        <input type="text" id="title" name="title" required>
+        <br>
+        <label for="description">Opis:</label>
+        <textarea id="description" name="description" required></textarea>
+        <br>
+        <label for="price">Cena:</label>
+        <input type="number" id="price" name="price" step="0.01" required>
+        <br>
+        <label for="category">Kategoria:</label>
+        <input type="text" id="category" name="category" required>
+        <br>
+        <label for="condition">Stan:</label>
+        <select id="condition" name="condition" required>
+            <option value="new">Nowy</option>
+            <option value="used">Używany</option>
+            <option value="damaged">Uszkodzony</option>
+        </select><br>
+        <br>
+        <label for="image">Zdjęcie:</label>
+        <input type="file" id="image" name="image" accept="image/*">
+        <br>
+        <button type="submit">Dodaj ofertę</button>
+    </form>
+    </div>
+</body>
+</html>

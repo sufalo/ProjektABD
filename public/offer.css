@@ -1,0 +1,120 @@
+body{
+    margin: 0;
+    background-color: #1c1e21;
+    color: white;
+}
+
+header{
+    margin: 0;
+    width: 100%;
+    height: auto;
+    background-color: #3A3B3C;
+    padding: 1% 0 1% 0;
+    text-shadow: 1px 1px 2px black;
+}
+
+header h1 {
+    margin-left: 10%;
+    color: white;
+    padding: 1% 0 1% 0;
+    text-transform: uppercase;
+}
+
+header h2 {
+    margin-left: 10%;
+}
+
+.offer {
+    width: 100%;
+    height: 500px;
+    margin-left: 2%;
+}
+
+.img_container {
+    width: 400px;
+    height: auto;
+}
+
+.image {
+    width: 40%;
+    height: 500px;
+    margin: 1% 1% 1% 1%;
+    float: left;
+    border: 1px solid white;
+    border-radius: 50px;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.clear{
+    clear: both;
+}
+
+.details {
+    width: 40%;
+    height: 500px;
+    float: left;
+    margin-top: 2%;
+    margin-left: 4%;
+    font-size: xx-large;
+}
+
+.details button {
+    background-color: #0099ff;
+    color: white;
+    padding: 2% 3% 2% 3%;  
+    border: 2px solid #007acc;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: large;
+    text-shadow: 1px 1px 2px black;
+    margin-top: 1%;
+}
+
+.details a:link, a:visited {
+    background-color: #0099ff;
+    color: white;
+    padding: 2% 3% 2% 3%;  
+    border: 2px solid #007acc;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: large;
+    text-shadow: 1px 1px 2px black;
+    margin-top: 1%;
+    text-decoration: none;
+}
+
+.reviews {
+    width: 100%;
+    margin: 3%;
+    font-size: large;
+}
+
+.reviews textarea, input {
+    margin-left: 10px;
+}
+
+.reviews button {
+    background-color: #0099ff;
+    color: white;
+    padding: 1% 1% 1% 1%;  
+    border: 2px solid #007acc;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: large;
+    text-shadow: 1px 1px 2px black;
+}
+
+.comment h2{
+    font-size: x-large;
+    text-transform: none;
+}
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Formularz zamówienia</title>
+</head>
+<body>
+    <header>
+    <h1>Formularz zamówienia</h1>
+    </header>
+    <div class="message">
+        <% if (message) { %>
+            <p><%= message %></p>
+        <% } %>
+    </div>
+    <div class="form">
+    <form action="/order" method="POST">
+        <label for="street">Ulica:</label>
+        <input type="text" id="street" name="street" required><br>
+        
+        <label for="city">Miasto:</label>
+        <input type="text" id="city" name="city" required><br>
+        
+        <label for="zip">Kod pocztowy:</label>
+        <input type="text" id="zip" name="zip" required><br>
+        
+        <label for="country">Kraj:</label>
+        <input type="text" id="country" name="country" required><br>
+        
+        <label for="payment_method">Metoda płatności:</label>
+        <select id="payment_method" name="payment_method" required>
+            <option value="credit_card">Karta kredytowa</option>
+            <option value="paypal">PayPal</option>
+            <option value="bank_transfer">Przelew bankowy</option>
+        </select><br>
+        <button type="submit">Złóż zamówienie</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="listing.css">
+    <title>Koszyk</title>
+</head>
+<body>
+    <header>
+    <h1>Koszyk</h1>
+    </header>
+    <div class="main">
+    <% if (cart.length === 0) { %>
+        <p>Koszyk jest pusty.</p>
+    <% } else { %>
+        <ul>
+            <% cart.forEach(function(item) { %>
+                <li>
+                    <p>Nazwa: <%= item.title %></p>
+                    <p>Cena: <%= item.price %> zł</p>
+                    <form action="/cart/remove/<%= item.offer_id %>" method="POST">
+                        <button type="submit" style="background-color: red; border: 2px solid #cc0000;">Usuń z koszyka</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+    <footer>
+        <form action="/order" method="GET">
+            <button type="submit">Zamów</button>
+        </form>
+    <% } %>
+    </footer>
+</body>
+</html>

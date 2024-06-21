@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/form.css">
+    <title>Edytuj ofertę</title>
+</head>
+<body>
+    <header>
+    <h1>Edytuj ofertę</h1>
+    </header>
+    <div class="message">
+    <% if (message) { %>
+        <p><%= message %></p>
+    <% } %>
+    </div>
+    <div class="form">
+    <form action="/offer/<%= offer.offer_id %>/edit" method="POST" enctype="multipart/form-data">
+        <label for="title">Tytuł:</label>
+        <input type="text" name="title" value="<%= offer.title %>" required>
+        <br>
+        <label for="description">Opis:</label>
+        <input type="text" name="description" value="<%= offer.description %>" required>
+        <br>
+        <label for="price">Cena:</label>
+        <input type="number" name="price" value="<%= offer.price %>" step="0.01" required>
+        <br>
+        <label for="image">Zdjęcie:</label>
+        <input type="file" name="image">
+        <br>
+        <button type="submit">Zapisz zmiany</button>
+    </form>
+    </div>
+
+    <footer>
+    <form action="/offer/<%= offer.offer_id %>/delete" method="POST" onsubmit="return confirm('Czy na pewno chcesz usunąć ten post?');">
+        <button type="submit" style="background-color: red; border: 2px solid #cc0000;">Usuń ofertę</button>
+    </form>    
+    </footer>
+</body>
+</html>

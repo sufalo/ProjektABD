@@ -1,0 +1,102 @@
+[
+  {
+    "user_id": 1,
+    "login": "jan_kowalski",
+    "first_name": "Jan",
+    "last_name": "Kowalski",
+    "email": "jan.kowalski@example.com",
+    "phone_number": "123456789",
+    "password": "$2b$10$g.Pn1rgmWSGV6BrLB8nJVuCnGJr27uYr1mom3/FKIpnnzYa9vAYSK",
+    "role": "administrator"
+  },
+  {
+    "user_id": 2,
+    "login": "anna_nowak",
+    "first_name": "Anna",
+    "last_name": "Nowak",
+    "email": "anna.nowak@example.com",
+    "phone_number": "987654321",
+    "password": "$2b$10$FMwE0ZTk3hYBLiiMQe22IOBrN8YGLAYjLmldCZeyB1Z5OUG3qmi/W",
+    "role": "user"
+  },
+  {
+    "user_id": 3,
+    "login": "adam_wisniewski",
+    "first_name": "Adam",
+    "last_name": "Wiśniewski",
+    "email": "adam.wisniewski@example.com",
+    "phone_number": "456123789",
+    "password": "$2b$10$jeLKV9El4kqKEHKZ5N484upgPoDzC6Eu5rLJ04/taqU3ByfHPLhf2",
+    "role": "administrator"
+  },
+  {
+    "user_id": 4,
+    "login": "ewa_nowakowska",
+    "first_name": "Ewa",
+    "last_name": "Nowakowska",
+    "email": "ewa.nowakowska@example.com",
+    "phone_number": "789456123",
+    "password": "$2b$10$BYr/T9ncZSJr1KQDogDJp.QZiSWKdlb5HFS7z6RzWHCqxLiTakRXq",
+    "role": "user"
+  },
+  {
+    "user_id": 5,
+    "login": "marek_krawczyk",
+    "first_name": "Marek",
+    "last_name": "Krawczyk",
+    "email": "marek.krawczyk@example.com",
+    "phone_number": "321654987",
+    "password": "$2b$10$5Nk/DEFvsqD2sDcDj0SuPeQxhFxKm4iFspgVGHf7fqT7wy99iofq.",
+    "role": "user"
+  },
+  {
+    "user_id": 6,
+    "login": "agnieszka_wojcik",
+    "first_name": "Agnieszka",
+    "last_name": "Wójcik",
+    "email": "agnieszka.wojcik@example.com",
+    "phone_number": "654789321",
+    "password": "$2b$10$iA4YiLWBMVibgsaZ09QBpOn1ShdQa1waA3q9PN7Y506pzaW/ZLeza",
+    "role": "administrator"
+  },
+  {
+    "user_id": 7,
+    "login": "pawel_nowakowski",
+    "first_name": "Paweł",
+    "last_name": "Nowakowski",
+    "email": "pawel.nowakowski@example.com",
+    "phone_number": "987321654",
+    "password": "$2b$10$acstrOCGgay2rCP2C6N1aeGW/kjXGWsGSBHGYfv6p5yztSQ5HhqBm",
+    "role": "user"
+  },
+  {
+    "user_id": 8,
+    "login": "karolina_adamczyk",
+    "first_name": "Karolina",
+    "last_name": "Adamczyk",
+    "email": "karolina.adamczyk@example.com",
+    "phone_number": "456789123",
+    "password": "$2b$10$ruUTCme6z5LoL1004X2VYOCSWzpKOYsPGrpe4ObaDUpdLN4NfCRHK",
+    "role": "administrator"
+  },
+  {
+    "user_id": 9,
+    "login": "wojciech_kaczmarek",
+    "first_name": "Wojciech",
+    "last_name": "Kaczmarek",
+    "email": "wojciech.kaczmarek@example.com",
+    "phone_number": "123789456",
+    "password": "$2b$10$OmXYGRZuA/6IMBwdgvPUZOAWX/CksZROBf39jcEQAJa.3eMZDeEWu",
+    "role": "user"
+  },
+  {
+    "user_id": 10,
+    "login": "katarzyna_wisniewska",
+    "first_name": "Katarzyna",
+    "last_name": "Wiśniewska",
+    "email": "katarzyna.wisniewska@example.com",
+    "phone_number": "789123456",
+    "password": "$2b$10$t2BeCo/rq5jod0yJ5PjlyOEnQEbMErY/0VxUSsQCwmMwBQpovCn9K",
+    "role": "administrator"
+  }
+]

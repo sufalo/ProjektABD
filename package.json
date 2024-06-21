@@ -1,0 +1,20 @@
+{
+  "type": "commonjs",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "chai": "^5.1.1",
+    "chai-http": "^5.0.0",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mocha": "^10.4.0",
+    "mongoose": "^8.4.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.3"
+  }
+}

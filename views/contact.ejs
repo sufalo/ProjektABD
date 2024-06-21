@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="listing.css">
+    <title>Kontakt</title>
+    <style>
+        li{
+            padding: 1% 1% 1% 1%;
+        }
+    </style>
+    <title>Kontakt</title>
+</head>
+<body>
+    <header>
+    <h1>Kontakt</h1>
+    </header>
+    <div class="main"> 
+    <p>Tutaj znajdziesz dane kontaktowe do administratorów:</p>
+    <ul>
+        <% admins.forEach(function(admin) { %>
+            <li><%= admin.first_name %> <%= admin.last_name %> - email: <%= admin.email %>, telefon: <%= admin.phone_number %></li>
+        <% }); %>
+    </ul>
+</body>
+</html>
